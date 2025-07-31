@@ -15,6 +15,8 @@ import (
 	"golang.org/x/tools/go/ast/astutil"
 )
 
+const runtimeDir = "_runtime"
+
 //go:embed _runtime
 var _runtime embed.FS
 
@@ -25,6 +27,7 @@ func TraceAllRepoFunc(ctx context.Context, repoPath string) {
 		os.Exit(1)
 	}
 
+	os.CopyFS(repoPath, _runtime)
 	if info.IsDir() {
 		// 处理目录
 		if err := processDirectory(repoPath); err != nil {
