@@ -1,12 +1,16 @@
 package vs
 
 import (
+	"embed"
 	"go/ast"
 	"go/token"
 	"strings"
 
 	"golang.org/x/tools/go/ast/astutil"
 )
+
+//go:embed _runtime
+var _runtime embed.FS
 
 type FileVisitor struct {
 	FSet   *token.FileSet
