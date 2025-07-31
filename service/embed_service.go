@@ -3,6 +3,7 @@ package service
 import (
 	"bytes"
 	"context"
+	"embed"
 	"fmt"
 	"go/ast"
 	"go/parser"
@@ -13,6 +14,9 @@ import (
 
 	"golang.org/x/tools/go/ast/astutil"
 )
+
+//go:embed _runtime
+var _runtime embed.FS
 
 func TraceAllRepoFunc(ctx context.Context, repoPath string) {
 	info, err := os.Stat(repoPath)
