@@ -15,8 +15,6 @@ import (
 	"golang.org/x/tools/go/ast/astutil"
 )
 
-const runtimeDir = "_runtime"
-
 //go:embed _runtime
 var _runtime embed.FS
 
